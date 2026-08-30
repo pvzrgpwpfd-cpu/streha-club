@@ -5,62 +5,1585 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#08111a">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="STREHA">
+<meta name="apple-mobile-web-app-title" content="STREHA CLUB">
 <link rel="manifest" href="manifest.json">
 <title>STREHA CLUB</title>
+
 <style>
-:root{--bg:#071018;--panel:#0e1a25;--panel2:#142431;--gold:#d7b34b;--text:#f4f7fa;--muted:#91a2b0;--line:#263744}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif}.app{max-width:920px;margin:auto;padding:16px 16px 80px}.top{display:flex;justify-content:space-between;align-items:center;padding:8px 0 18px}.brand{font-weight:950;letter-spacing:2px}.gold{color:var(--gold)}.pill{border:1px solid #5f512c;color:var(--gold);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}.hero,.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:14px}.hero{background:linear-gradient(145deg,#09131d,#142735)}h1{font-size:clamp(40px,9vw,68px);line-height:.94;margin:12px 0;letter-spacing:-3px}.muted{color:var(--muted);line-height:1.5}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{background:#0003;border:1px solid var(--line);border-radius:15px;padding:15px}.num{font-size:25px;font-weight:900;color:var(--gold)}.small{font-size:12px;color:var(--muted)}.nav{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:14px 0}.nav button{border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:11px;padding:11px 5px;cursor:pointer;font-size:12px}.nav button.active{color:var(--gold);border-color:#7a632d}.row{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}input,select{width:100%;margin-top:6px;background:#09131c;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px;font-size:16px}.field{margin:13px 0}label{font-size:13px;color:var(--muted)}.btn{border:0;border-radius:11px;padding:13px 17px;background:var(--gold);color:#081018;font-weight:900;cursor:pointer}.btn.alt{background:transparent;color:var(--text);border:1px solid var(--line);margin-left:6px}.notice{padding:12px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);font-size:13px;color:var(--muted);margin-top:14px}.hidden{display:none}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.catchcard{border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--panel2)}.catchcard img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px}.avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px}@media(max-width:600px){.stats,.grid{grid-template-columns:1fr}.nav{grid-template-columns:repeat(3,1fr)}} 
+:root{
+  --bg:#071018;
+  --panel:#0e1a25;
+  --panel2:#142431;
+  --gold:#d7b34b;
+  --text:#f4f7fa;
+  --muted:#91a2b0;
+  --line:#263744;
+  --green:#42d392;
+  --red:#e86b6b;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+}
+
+.app{
+  max-width:920px;
+  margin:auto;
+  padding:16px 16px 80px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0 18px;
+}
+
+.brand{
+  font-weight:950;
+  letter-spacing:2px;
+  font-size:21px;
+}
+
+.gold{color:var(--gold)}
+
+.pill{
+  border:1px solid #5f512c;
+  color:var(--gold);
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.hero,.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+  margin-top:14px;
+}
+
+.hero{
+  background:linear-gradient(145deg,#09131d,#142735);
+}
+
+h1{
+  font-size:clamp(40px,9vw,68px);
+  line-height:.94;
+  margin:12px 0;
+  letter-spacing:-3px;
+}
+
+h2{
+  font-size:28px;
+  margin-top:0;
+}
+
+.muted{
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:22px;
+}
+
+.stat{
+  background:#0003;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:15px;
+}
+
+.num{
+  font-size:25px;
+  font-weight:900;
+  color:var(--gold);
+}
+
+.small{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.nav{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+  margin:14px 0;
+}
+
+.nav button{
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--muted);
+  border-radius:11px;
+  padding:11px 5px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.nav button.active{
+  color:var(--gold);
+  border-color:#7a632d;
+}
+
+input,select{
+  width:100%;
+  margin-top:6px;
+  background:#09131c;
+  border:1px solid var(--line);
+  color:var(--text);
+  border-radius:10px;
+  padding:12px;
+  font-size:16px;
+}
+
+.field{
+  margin:13px 0;
+}
+
+label{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.btn{
+  border:0;
+  border-radius:11px;
+  padding:13px 17px;
+  background:var(--gold);
+  color:#081018;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.btn.alt{
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--line);
+  margin-left:6px;
+}
+
+.notice{
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--panel2);
+  font-size:13px;
+  color:var(--muted);
+  margin-top:14px;
+}
+
+.success{
+  color:var(--green);
+}
+
+.error{
+  color:var(--red);
+}
+
+.hidden{
+  display:none!important;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.catchcard{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
+  background:var(--panel2);
+}
+
+.catchcard img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+  margin-bottom:12px;
+}
+
+.catchinfo{
+  display:grid;
+  gap:6px;
+}
+
+.catchspecies{
+  font-size:20px;
+  font-weight:900;
+  color:var(--gold);
+}
+
+.catchmeta{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.status{
+  display:inline-block;
+  width:max-content;
+  padding:5px 8px;
+  border-radius:999px;
+  font-size:11px;
+  border:1px solid var(--line);
+}
+
+.status.approved{
+  color:var(--green);
+}
+
+.status.pending{
+  color:var(--gold);
+}
+
+.avatar{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--gold);
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.row:last-child{
+  border-bottom:0;
+}
+
+.empty{
+  text-align:center;
+  padding:30px 10px;
+  color:var(--muted);
+}
+
+.loading{
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+}
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:30px;
+}
+
+@media(max-width:600px){
+  .stats,.grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
 </style>
 </head>
+
 <body>
+
 <div class="app">
-<div class="top"><div class="brand">STREHA <span class="gold">CLUB</span></div><div class="pill">COMMUNITY</div></div>
+
+<div class="top">
+  <div class="brand">
+    STREHA <span class="gold">CLUB</span>
+  </div>
+  <div class="pill">COMMUNITY</div>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-<div class="pill">🎣 STREHA E PESHKATARIT</div><h1>PESHKIMI<br><span class="gold">NA BASHKON.</span></h1>
-<p class="muted">Komuniteti i peshkatarëve: profil, catch-e, XP, League dhe Rewards.</p>
-<button class="btn" id="authBtn">HYR / REGJISTROHU</button>
-<button class="btn alt" id="installBtn">📲 INSTALO</button>
-<div id="iosHint" class="notice hidden">Në iPhone: Share → Add to Home Screen.</div>
-<div class="stats"><div class="stat"><div class="num" id="xp">0</div><div class="small">XP</div></div><div class="stat"><div class="num" id="catchCount">0</div><div class="small">Catches</div></div><div class="stat"><div class="num" id="level">Guest</div><div class="small">Level</div></div></div>
+
+<div class="pill">🎣 STREHA E PESHKATARIT</div>
+
+<h1>
+PESHKIMI<br>
+<span class="gold">NA BASHKON.</span>
+</h1>
+
+<p class="muted">
+Profili, kapjet, XP, League dhe Rewards në një aplikacion.
+</p>
+
+<button class="btn" id="authBtn">
+HYR / REGJISTROHU
+</button>
+
+<button class="btn alt" id="installBtn">
+📲 INSTALO
+</button>
+
+<div id="iosHint" class="notice hidden">
+Në iPhone: Share → Add to Home Screen.
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<div class="num" id="xp">0</div>
+<div class="small">XP</div>
+</div>
+
+<div class="stat">
+<div class="num" id="catchCount">0</div>
+<div class="small">Catches</div>
+</div>
+
+<div class="stat">
+<div class="num" id="level">Guest</div>
+<div class="small">Level</div>
+</div>
+
+</div>
 </section>
+
+
+<!-- NAV -->
 <div class="nav">
-<button class="active" data-page="home">🏠 Home</button><button data-page="catch">🎣 Catch</button><button data-page="league">🏆 League</button><button data-page="rewards">🎁 Rewards</button><button data-page="profile">🪪 Profile</button>
+
+<button class="active" data-page="home">
+🏠 Home
+</button>
+
+<button data-page="catch">
+🎣 Catch
+</button>
+
+<button data-page="league">
+🏆 League
+</button>
+
+<button data-page="rewards">
+🎁 Rewards
+</button>
+
+<button data-page="profile">
+🪪 Profile
+</button>
+
 </div>
-<section id="home" class="panel page"><h2>Mirë se erdhe 👋</h2><p class="muted">Këtu do shfaqen aktivitetet e komunitetit dhe eventet e ardhshme.</p><div class="notice" id="authNotice">Hyr ose regjistrohu për të ruajtur profilin dhe kapjet online.</div><div id="feed"></div></section>
-<section id="catch" class="panel page hidden"><h2>🎣 Shto Catch</h2><p class="muted">Ngarko kapjen tënde. Në versionin real ajo ruhet online dhe pret aprovimin e adminit.</p><div class="field"><label>Foto<input id="photo" type="file" accept="image/*"></label></div><div class="field"><label>Specie<input id="species" placeholder="Bonito, Serra, Levrek..."></label></div><div class="field"><label>Teknika<select id="tech"><option>Trolling</option><option>Spinning</option><option>Eging</option><option>Surfcasting</option><option>Bolentino</option></select></label></div><div class="field"><label>Pesha (kg)<input id="weight" type="number" min="0.1" step="0.1"></label></div><button class="btn" id="submitCatch">DËRGO CATCH</button><p class="muted" id="catchMsg"></p></section>
-<section id="league" class="panel page hidden"><h2>🏆 STREHA LEAGUE</h2><p class="muted">Leaderboard-i merret nga database.</p><div id="leaderboard"></div></section>
-<section id="rewards" class="panel page hidden"><h2>🎁 Rewards</h2><div class="row"><span>1,000 XP</span><b>Club Reward</b></div><div class="row"><span>2,500 XP</span><b>Pro Reward</b></div><div class="row"><span>5,000 XP</span><b>Master Reward</b></div><div class="row"><span>10,000 XP</span><b>👑 Streha Legend</b></div></section>
-<section id="profile" class="panel page hidden"><h2>🪪 Profili</h2><div class="field"><label>Emër<input id="name"></label></div><div class="field"><label>Qyteti<input id="city"></label></div><div class="field"><label>Teknika<select id="pref"><option>Trolling</option><option>Spinning</option><option>Eging</option><option>Surfcasting</option><option>Bolentino</option></select></div><button class="btn" id="saveProfile">RUAJ PROFILIN</button><p class="muted" id="profileMsg"></p><div class="row"><span>STREHA ID</span><b id="memberId">—</b></div></section>
-<section id="auth" class="panel hidden"><h2>👤 Account</h2><p class="muted">Për versionin online përdor email + password. Supabase do ta menaxhojë autentikimin.</p><div class="field"><label>Email<input id="email" type="email" placeholder="email@example.com"></label></div><div class="field"><label>Password<input id="password" type="password" minlength="6"></label></div><button class="btn" id="signup">REGJISTROHU</button><button class="btn alt" id="login">HYR</button><p class="muted" id="authMsg"></p></section>
-<footer>STREHA CLUB • Peshkimi na bashkon.</footer>
+
+
+<!-- HOME -->
+<section id="home" class="panel page">
+
+<h2>Mirë se erdhe 👋</h2>
+
+<p class="muted">
+Këtu shfaqen kapjet dhe aktivitetet e komunitetit.
+</p>
+
+<div class="notice" id="authNotice">
+Hyr ose regjistrohu për të përdorur STREHA CLUB.
 </div>
+
+<h2 style="margin-top:30px">
+🎣 Catch-et e fundit
+</h2>
+
+<div id="feed" class="grid">
+<div class="loading">
+Po ngarkohen catch-et...
+</div>
+</div>
+
+</section>
+
+
+<!-- CATCH -->
+<section id="catch" class="panel page hidden">
+
+<h2>🎣 Shto Catch</h2>
+
+<p class="muted">
+Ngarko kapjen tënde. Fotoja ruhet në Supabase Storage.
+Catch-i mund të presë aprovimin e adminit.
+</p>
+
+<div class="field">
+
+<label>
+Foto
+<input id="photo" type="file" accept="image/*">
+</label>
+
+</div>
+
+<div class="field">
+
+<label>
+Specie
+<input id="species" placeholder="Bonito, Serra, Levrek...">
+</label>
+
+</div>
+
+<div class="field">
+
+<label>
+Teknika
+
+<select id="tech">
+<option>Trolling</option>
+<option>Spinning</option>
+<option>Eging</option>
+<option>Surfcasting</option>
+<option>Bolentino</option>
+<option>Jigging</option>
+<option>Live Bait</option>
+</select>
+
+</label>
+
+</div>
+
+<div class="field">
+
+<label>
+Pesha (kg)
+
+<input
+id="weight"
+type="number"
+min="0.1"
+step="0.1"
+placeholder="P.sh. 3.5"
+>
+
+</label>
+
+</div>
+
+<button class="btn" id="submitCatch">
+DËRGO CATCH
+</button>
+
+<p class="muted" id="catchMsg"></p>
+
+</section>
+
+
+<!-- LEAGUE -->
+<section id="league" class="panel page hidden">
+
+<h2>🏆 STREHA LEAGUE</h2>
+
+<p class="muted">
+Peshkatarët me më shumë XP.
+</p>
+
+<div id="leaderboard">
+<div class="loading">
+Po ngarkohet League...
+</div>
+</div>
+
+</section>
+
+
+<!-- REWARDS -->
+<section id="rewards" class="panel page hidden">
+
+<h2>🎁 Rewards</h2>
+
+<div class="row">
+<span>1,000 XP</span>
+<b>Club Reward</b>
+</div>
+
+<div class="row">
+<span>2,500 XP</span>
+<b>Pro Reward</b>
+</div>
+
+<div class="row">
+<span>5,000 XP</span>
+<b>Master Reward</b>
+</div>
+
+<div class="row">
+<span>10,000 XP</span>
+<b>👑 Streha Legend</b>
+</div>
+
+</section>
+
+
+<!-- PROFILE -->
+<section id="profile" class="panel page hidden">
+
+<h2>🪪 Profili</h2>
+
+<div class="field">
+
+<label>
+Emër
+
+<input id="name" placeholder="Emri yt">
+</label>
+
+</div>
+
+<div class="field">
+
+<label>
+Qyteti
+
+<input id="city" placeholder="Vlorë, Lushnje, Durrës...">
+</label>
+
+</div>
+
+<div class="field">
+
+<label>
+Teknika kryesore
+
+<select id="pref">
+<option>Trolling</option>
+<option>Spinning</option>
+<option>Eging</option>
+<option>Surfcasting</option>
+<option>Bolentino</option>
+<option>Jigging</option>
+<option>Live Bait</option>
+</select>
+
+</label>
+
+</div>
+
+<button class="btn" id="saveProfile">
+RUAJ PROFILIN
+</button>
+
+<p class="muted" id="profileMsg"></p>
+
+<div class="row">
+<span>STREHA ID</span>
+<b id="memberId">—</b>
+</div>
+
+</section>
+
+
+<!-- AUTH -->
+<section id="auth" class="panel hidden">
+
+<h2>👤 Account</h2>
+
+<p class="muted">
+Krijo account ose hyr në STREHA CLUB.
+</p>
+
+<div class="field">
+
+<label>
+Email
+
+<input
+id="email"
+type="email"
+placeholder="email@example.com"
+>
+</label>
+
+</div>
+
+<div class="field">
+
+<label>
+Password
+
+<input
+id="password"
+type="password"
+minlength="6"
+placeholder="Minimum 6 karaktere"
+>
+</label>
+
+</div>
+
+<button class="btn" id="signup">
+REGJISTROHU
+</button>
+
+<button class="btn alt" id="login">
+HYR
+</button>
+
+<p class="muted" id="authMsg"></p>
+
+</section>
+
+
+<footer>
+STREHA CLUB • Peshkimi na bashkon.
+</footer>
+
+</div>
+
+
 <script type="module">
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-const CONFIG={url:'https://xxzwnlkvtgcotyypfnve.supabase.co',key:'sb_publishable_FfGjBtKt3JcKvuDcqndZCA_h5Zko0D3'};
-const supabase=(CONFIG.url.startsWith('http'))?createClient(CONFIG.url,CONFIG.key):null;
-const $=id=>document.getElementById(id); let me=null;
-const levels=[[10000,'Legend'],[5000,'Master'],[2500,'Pro'],[1000,'Angler'],[0,'Beginner']];
-function render(p){$('xp').textContent=p?.xp??0;$('catchCount').textContent=p?.catch_count??0;$('level').textContent=p?levels.find(x=>(p.xp||0)>=x[0])[1]:'Guest';$('memberId').textContent=p?.member_id||'—'}
+
+import {
+createClient
+} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+
+/* =========================
+   SUPABASE
+========================= */
+
+const CONFIG = {
+
+url:
+'https://xxzwnlkvtgcotyypfnve.supabase.co',
+
+key:
+'sb_publishable_FfGjBtKt3JcKvuDcqndZCA_h5Zko0D3'
+
+};
+
+const supabase =
+createClient(CONFIG.url,CONFIG.key);
+
+let me = null;
+
+
+/* =========================
+   HELPERS
+========================= */
+
+const $ = id =>
+document.getElementById(id);
+
+
+const levels = [
+[10000,'Legend'],
+[5000,'Master'],
+[2500,'Pro'],
+[1000,'Angler'],
+[0,'Beginner']
+];
+
+
+function render(profile){
+
+$('xp').textContent =
+profile?.xp ?? 0;
+
+$('catchCount').textContent =
+profile?.catch_count ?? 0;
+
+$('level').textContent =
+profile
+?
+levels.find(
+x => (profile.xp || 0) >= x[0]
+)[1]
+:
+'Guest';
+
+$('memberId').textContent =
+profile?.member_id || '—';
+
+}
+
+
+/* =========================
+   LOAD PROFILE
+========================= */
+
 async function loadProfile(){
- if(!supabase){render(null);return}
- const {data:{user}}=await supabase.auth.getUser(); me=user;
- if(!user){render(null);$('authNotice').textContent='Hyr ose regjistrohu për të përdorur STREHA CLUB.';return}
- const {data:p}=await supabase.from('profiles').select('*').eq('id',user.id).maybeSingle();
- if(p){$('name').value=p.full_name||'';$('city').value=p.city||'';$('pref').value=p.technique||'Trolling';render(p);$('authNotice').textContent='✓ Je i kyçur si '+(p.full_name||user.email)}
+
+const {
+data:{user}
+} = await supabase.auth.getUser();
+
+me = user;
+
+if(!user){
+
+render(null);
+
+$('authNotice').textContent =
+'Hyr ose regjistrohu për të përdorur STREHA CLUB.';
+
+return;
+
 }
+
+
+const {
+data:p,
+error
+} =
+await supabase
+.from('profiles')
+.select('*')
+.eq('id',user.id)
+.maybeSingle();
+
+
+if(error){
+
+console.error(error);
+
+$('authNotice').textContent =
+'Gabim gjatë ngarkimit të profilit.';
+
+return;
+
+}
+
+
+if(p){
+
+$('name').value =
+p.full_name || '';
+
+$('city').value =
+p.city || '';
+
+$('pref').value =
+p.technique || 'Trolling';
+
+render(p);
+
+$('authNotice').textContent =
+'✓ Je i kyçur si ' +
+(p.full_name || user.email);
+
+}
+
+else{
+
+render({
+xp:0,
+catch_count:0
+});
+
+$('authNotice').textContent =
+'Account u krijua. Plotëso profilin tënd.';
+
+}
+
+}
+
+
+/* =========================
+   LOAD CATCHES
+========================= */
+
+async function loadCatches(){
+
+const feed =
+$('feed');
+
+feed.innerHTML =
+'<div class="loading">Po ngarkohen catch-et...</div>';
+
+
+const {
+data,
+error
+} =
+await supabase
+.from('catches')
+.select('*')
+.order('created_at',{ascending:false})
+.limit(30);
+
+
+if(error){
+
+console.error(error);
+
+feed.innerHTML =
+`
+<div class="notice error">
+Nuk u ngarkuan catch-et.<br>
+${error.message}
+</div>
+`;
+
+return;
+
+}
+
+
+if(!data || data.length === 0){
+
+feed.innerHTML =
+`
+<div class="empty">
+🎣 Ende nuk ka catch-e.<br>
+Bëhu i pari që regjistron një kapje!
+</div>
+`;
+
+return;
+
+}
+
+
+/*
+  Nëse database ka status:
+  approved / pending / rejected.
+
+  Nëse nuk ka status,
+  catch-i shfaqet normalisht.
+*/
+
+const visible =
+data.filter(c => {
+
+if(!c.status) return true;
+
+return c.status !== 'rejected';
+
+});
+
+
+if(visible.length === 0){
+
+feed.innerHTML =
+`
+<div class="empty">
+Nuk ka catch-e të aprovuara ende.
+</div>
+`;
+
+return;
+
+}
+
+
+feed.innerHTML =
+visible.map(c => {
+
+const image =
+c.image_url
+?
+`
+<img
+src="${escapeHtml(c.image_url)}"
+alt="${escapeHtml(c.species || 'Catch')}"
+loading="lazy"
+>
+`
+:
+`
+<div class="notice">
+📷 Pa foto
+</div>
+`;
+
+
+let statusHTML = '';
+
+if(c.status){
+
+const approved =
+String(c.status).toLowerCase()
+===
+'approved';
+
+statusHTML =
+`
+<span class="status ${approved?'approved':'pending'}">
+${approved?'✓ Approved':'⏳ Pending'}
+</span>
+`;
+
+}
+
+
+return `
+<div class="catchcard">
+
+${image}
+
+<div class="catchinfo">
+
+<div class="catchspecies">
+${escapeHtml(c.species || 'Catch')}
+</div>
+
+<div class="catchmeta">
+🎣 ${escapeHtml(c.technique || '—')}
+</div>
+
+<div class="catchmeta">
+⚖️ ${c.weight_kg ?? '—'} kg
+</div>
+
+${statusHTML}
+
+</div>
+
+</div>
+`;
+
+}).join('');
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(value){
+
+return String(value ?? '')
+.replaceAll('&','&amp;')
+.replaceAll('<','&lt;')
+.replaceAll('>','&gt;')
+.replaceAll('"','&quot;')
+.replaceAll("'","&#039;");
+
+}
+
+
+/* =========================
+   LEADERBOARD
+========================= */
+
 async function leaderboard(){
- if(!supabase){$('leaderboard').innerHTML='<div class="notice">Konfiguro Supabase për leaderboard live.</div>';return}
- const {data}=await supabase.from('profiles').select('full_name,member_id,xp').order('xp',{ascending:false}).limit(20);
- $('leaderboard').innerHTML=(data||[]).map((p,i)=>`<div class="row"><span>${i<3?['🥇','🥈','🥉'][i]:i+1+'️⃣'} ${p.full_name||'Angler'}</span><b>${p.xp||0} XP</b></div>`).join('');
+
+const box =
+$('leaderboard');
+
+box.innerHTML =
+'<div class="loading">Po ngarkohet League...</div>';
+
+
+const {
+data,
+error
+} =
+await supabase
+.from('profiles')
+.select('full_name,member_id,xp')
+.order('xp',{ascending:false})
+.limit(20);
+
+
+if(error){
+
+box.innerHTML =
+`
+<div class="notice error">
+${error.message}
+</div>
+`;
+
+return;
+
 }
-document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$(b.dataset.page).classList.remove('hidden');if(b.dataset.page==='league')leaderboard()});
-$('authBtn').onclick=()=>{$('auth').classList.toggle('hidden');$('auth').scrollIntoView({behavior:'smooth'})};
-$('signup').onclick=async()=>{if(!supabase){$('authMsg').textContent='Vendos Supabase URL dhe anon key te index.html.';return}const {error}=await supabase.auth.signUp({email:$('email').value,password:$('password').value});$('authMsg').textContent=error?error.message:'✓ Kontrollo email-in për konfirmim.'};
-$('login').onclick=async()=>{if(!supabase){$('authMsg').textContent='Vendos Supabase URL dhe anon key te index.html.';return}const {error}=await supabase.auth.signInWithPassword({email:$('email').value,password:$('password').value});$('authMsg').textContent=error?error.message:'✓ U kyçe.';await loadProfile()};
-$('saveProfile').onclick=async()=>{if(!supabase||!me){$('profileMsg').textContent='Hyr fillimisht.';return}const {error}=await supabase.from('profiles').upsert({id:me.id,full_name:$('name').value,city:$('city').value,technique:$('pref').value});$('profileMsg').textContent=error?error.message:'✓ Profili u ruajt.';await loadProfile()};
-$('submitCatch').onclick=async()=>{if(!supabase||!me){$('catchMsg').textContent='Hyr fillimisht.';return}const species=$('species').value.trim(),weight=Number($('weight').value);if(!species||!weight){$('catchMsg').textContent='Plotëso specien dhe peshën.';return}let image_url=null;const f=$('photo').files[0];if(f){const path=`${me.id}/${crypto.randomUUID()}-${f.name}`;const up=await supabase.storage.from('catch-photos').upload(path,f,{upsert:false});if(up.error){$('catchMsg').textContent=up.error.message;return}image_url=supabase.storage.from('catch-photos').getPublicUrl(path).data.publicUrl}const {error}=await supabase.from('catches').insert({user_id:me.id,species,technique:$('tech').value,weight_kg:weight,image_url});$('catchMsg').textContent=error?error.message:'✓ Catch u dërgua për aprovim.';if(!error){$('species').value='';$('weight').value='';$('photo').value=''}};
-let deferred;$('installBtn').onclick=async()=>{if(deferred){deferred.prompt();deferred=null}else $('iosHint').classList.remove('hidden')};addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
-loadProfile();leaderboard();
+
+
+if(!data?.length){
+
+box.innerHTML =
+`
+<div class="empty">
+Ende nuk ka peshkatarë në League.
+</div>
+`;
+
+return;
+
+}
+
+
+box.innerHTML =
+data.map((p,i)=>{
+
+const medal =
+i===0?'🥇':
+i===1?'🥈':
+i===2?'🥉':
+`${i+1}.`;
+
+return `
+<div class="row">
+
+<span>
+${medal}
+${escapeHtml(p.full_name || 'Angler')}
+</span>
+
+<b>
+${p.xp || 0} XP
+</b>
+
+</div>
+`;
+
+}).join('');
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+document
+.querySelectorAll('.nav button')
+.forEach(button=>{
+
+button.onclick = async ()=>{
+
+document
+.querySelectorAll('.nav button')
+.forEach(x =>
+x.classList.remove('active')
+);
+
+button.classList.add('active');
+
+document
+.querySelectorAll('.page')
+.forEach(x =>
+x.classList.add('hidden')
+);
+
+$(button.dataset.page)
+.classList.remove('hidden');
+
+
+if(button.dataset.page === 'league')
+await leaderboard();
+
+
+if(button.dataset.page === 'home')
+await loadCatches();
+
+};
+
+});
+
+
+/* =========================
+   AUTH BUTTON
+========================= */
+
+$('authBtn').onclick = ()=>{
+
+$('auth')
+.classList.toggle('hidden');
+
+$('auth')
+.scrollIntoView({
+behavior:'smooth'
+});
+
+};
+
+
+/* =========================
+   REGISTER
+========================= */
+
+$('signup').onclick = async ()=>{
+
+const email =
+$('email').value.trim();
+
+const password =
+$('password').value;
+
+
+if(!email || !password){
+
+$('authMsg').textContent =
+'Plotëso email dhe password.';
+
+return;
+
+}
+
+
+$('authMsg').textContent =
+'Po krijohet account...';
+
+
+const redirectUrl =
+window.location.origin +
+window.location.pathname;
+
+
+const {
+error
+} =
+await supabase.auth.signUp({
+
+email,
+password,
+
+options:{
+emailRedirectTo:redirectUrl
+}
+
+});
+
+
+if(error){
+
+$('authMsg').innerHTML =
+`<span class="error">${escapeHtml(error.message)}</span>`;
+
+return;
+
+}
+
+
+$('authMsg').innerHTML =
+`
+<span class="success">
+✓ Account u krijua.<br>
+Kontrollo email-in për konfirmim.
+</span>
+`;
+
+};
+
+
+/* =========================
+   LOGIN
+========================= */
+
+$('login').onclick = async ()=>{
+
+const email =
+$('email').value.trim();
+
+const password =
+$('password').value;
+
+
+if(!email || !password){
+
+$('authMsg').textContent =
+'Plotëso email dhe password.';
+
+return;
+
+}
+
+
+$('authMsg').textContent =
+'Po hyn...';
+
+
+const {
+error
+} =
+await supabase.auth.signInWithPassword({
+
+email,
+password
+
+});
+
+
+if(error){
+
+$('authMsg').innerHTML =
+`
+<span class="error">
+${escapeHtml(error.message)}
+</span>
+`;
+
+return;
+
+}
+
+
+$('authMsg').innerHTML =
+`
+<span class="success">
+✓ U kyçe me sukses.
+</span>
+`;
+
+
+await loadProfile();
+
+await loadCatches();
+
+};
+
+
+/* =========================
+   SAVE PROFILE
+========================= */
+
+$('saveProfile').onclick =
+async ()=>{
+
+if(!me){
+
+$('profileMsg').textContent =
+'Hyr fillimisht.';
+
+return;
+
+}
+
+
+$('profileMsg').textContent =
+'Po ruhet...';
+
+
+const {
+error
+} =
+await supabase
+.from('profiles')
+.upsert({
+
+id:me.id,
+
+full_name:
+$('name').value.trim(),
+
+city:
+$('city').value.trim(),
+
+technique:
+$('pref').value
+
+});
+
+
+if(error){
+
+$('profileMsg').innerHTML =
+`
+<span class="error">
+${escapeHtml(error.message)}
+</span>
+`;
+
+return;
+
+}
+
+
+$('profileMsg').innerHTML =
+`
+<span class="success">
+✓ Profili u ruajt.
+</span>
+`;
+
+await loadProfile();
+
+};
+
+
+/* =========================
+   SUBMIT CATCH
+========================= */
+
+$('submitCatch').onclick =
+async ()=>{
+
+if(!me){
+
+$('catchMsg').innerHTML =
+`
+<span class="error">
+Hyr në account fillimisht.
+</span>
+`;
+
+return;
+
+}
+
+
+const species =
+$('species').value.trim();
+
+const technique =
+$('tech').value;
+
+const weight =
+Number($('weight').value);
+
+const file =
+$('photo').files[0];
+
+
+if(!species){
+
+$('catchMsg').textContent =
+'Shkruaj specien.';
+
+return;
+
+}
+
+
+if(!weight || weight <= 0){
+
+$('catchMsg').textContent =
+'Vendos peshën.';
+
+return;
+
+}
+
+
+$('catchMsg').textContent =
+'Po dërgohet catch-i...';
+
+
+let image_url = null;
+
+
+/* =========================
+   UPLOAD PHOTO
+========================= */
+
+if(file){
+
+if(file.size > 10 * 1024 * 1024){
+
+$('catchMsg').innerHTML =
+`
+<span class="error">
+Fotoja duhet të jetë maksimumi 10MB.
+</span>
+`;
+
+return;
+
+}
+
+
+const extension =
+file.name
+.split('.')
+.pop()
+.toLowerCase();
+
+
+const path =
+`${me.id}/${crypto.randomUUID()}.${extension}`;
+
+
+const upload =
+await supabase
+.storage
+.from('catch-photos')
+.upload(
+path,
+file,
+{
+upsert:false,
+contentType:file.type
+}
+);
+
+
+if(upload.error){
+
+console.error(upload.error);
+
+$('catchMsg').innerHTML =
+`
+<span class="error">
+Gabim me foton:<br>
+${escapeHtml(upload.error.message)}
+</span>
+`;
+
+return;
+
+}
+
+
+/* PUBLIC URL */
+
+const publicUrl =
+supabase
+.storage
+.from('catch-photos')
+.getPublicUrl(path);
+
+
+image_url =
+publicUrl.data.publicUrl;
+
+}
+
+
+/* =========================
+   INSERT CATCH
+========================= */
+
+const {
+error
+} =
+await supabase
+.from('catches')
+.insert({
+
+user_id:me.id,
+
+species:species,
+
+technique:technique,
+
+weight_kg:weight,
+
+image_url:image_url
+
+});
+
+
+if(error){
+
+console.error(error);
+
+$('catchMsg').innerHTML =
+`
+<span class="error">
+Gabim:<br>
+${escapeHtml(error.message)}
+</span>
+`;
+
+return;
+
+}
+
+
+/* SUCCESS */
+
+$('catchMsg').innerHTML =
+`
+<span class="success">
+🎉 Catch u regjistrua me sukses!<br>
+${image_url ? '📸 Fotoja u ruajt online.' : ''}
+<br>
+⏳ Nëse kërkohet, catch-i pret aprovimin e adminit.
+</span>
+`;
+
+
+$('species').value = '';
+
+$('weight').value = '';
+
+$('photo').value = '';
+
+
+await loadProfile();
+
+await loadCatches();
+
+};
+
+
+/* =========================
+   PWA INSTALL
+========================= */
+
+let deferredPrompt = null;
+
+
+window.addEventListener(
+'beforeinstallprompt',
+event=>{
+
+event.preventDefault();
+
+deferredPrompt = event;
+
+});
+
+
+$('installBtn').onclick =
+async ()=>{
+
+if(deferredPrompt){
+
+deferredPrompt.prompt();
+
+deferredPrompt = null;
+
+}
+
+else{
+
+$('iosHint')
+.classList
+.remove('hidden');
+
+}
+
+};
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+supabase.auth.onAuthStateChange(
+async (event,session)=>{
+
+me = session?.user || null;
+
+await loadProfile();
+
+await loadCatches();
+
+});
+
+
+/* =========================
+   START
+========================= */
+
+await loadProfile();
+
+await loadCatches();
+
+await leaderboard();
+
 </script>
-</body></html>
+
+</body>
+</html>
